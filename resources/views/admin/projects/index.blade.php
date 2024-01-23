@@ -2,7 +2,11 @@
 
 @section('content')
     <div class="container mt-5">
-      <h2>Lista Dei Projects:</h2>
+      <h2>List Projects:</h2>
+
+      <div class="text-end">
+        <a class="btn btn-warning" href="{{ route('admin.projects.create') }}">Create a new Project</a>
+      </div>
 
       <table class="table table-striped mt-5">
 
