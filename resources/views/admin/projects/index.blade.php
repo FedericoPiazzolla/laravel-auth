@@ -24,7 +24,9 @@
               <th scope="row">{{ $project->id }}</th>
               <td>{{ $project->title }}</td>
               <td>{{ $project->created_at }}</td>
-              <td></td>
+              <td>
+                <a class="btn btn-success" href="{{ route('admin.projects.show', ['project' => $project->slug]) }}">Details</a>
+              </td>
             </tr>  
           @endforeach
           
