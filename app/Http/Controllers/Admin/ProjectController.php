@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use illuminate\Support\Str;
@@ -76,9 +77,9 @@ class ProjectController extends Controller
      * @param  Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Project $project)
+    public function update(UpdateProjectRequest $request, Project $project)
     {
-        $form_data = $request->all();
+        $form_data = $request->validated();
         $project->update($form_data);
 
         return redirect()->route('admin.projects.show', ['project' => $project->slug]);
