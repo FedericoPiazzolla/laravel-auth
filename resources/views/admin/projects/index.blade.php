@@ -9,9 +9,9 @@
       </div>
 
       @if (session('message'))
-          <div class="alert alert-danger">
-            {{ session('message') }}
-          </div>
+        <div class="alert alert-danger">
+          {{ session('message') }}
+        </div>
       @endif
 
       @if (count($projects) > 0)
@@ -42,7 +42,7 @@
                   <form class="d-inline-block" action="{{ route('admin.projects.destroy', ['project' => $project->slug]) }}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button class="btn btn-danger" type="submit">Delete</button>
+                    <button class="btn btn-danger btn-delete" type="submit">Delete</button>
                   </form>
                 </td>
               </tr>  
@@ -59,5 +59,6 @@
           
       @endif
       
+      @include('admin.partials.delete-modal')
     </div>
 @endsection
